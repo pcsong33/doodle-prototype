@@ -3,56 +3,65 @@
 
 {% block content %}
 
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="{% static 'lang-logo.png'%}">
-    </a>
-    <h1>Getting Started with Python on Heroku</h1>
-    <p>This is a sample Python application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-python"><span class="glyphicon glyphicon-flash"></span> Getting Started with Python</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/python-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
+
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-python" class="alert-link">Getting Started with Python on Heroku</a> tutorial.
+       <h4> Select your preferred times by checking the boxes below.</h4>
+      We'll let you know when the organizer picks the best time.
   </div>
   <hr>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Monday <br> Oct 19 <br><br> 9 am -<br> 12 pm</th>
+                <th>Tuesday <br> Oct 20 <br><br> 9 am -<br> 12 pm</th>
+                <th>Wednesday <br> Oct 21 <br><br> 9 am -<br> 12 pm</th>
+                <th>Thursday <br> Oct 22 <br><br> 9 am -<br> 12 pm</th>
+                <th>Friday <br> Oct 23 <br><br> 9 am -<br> 12 pm</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Patrick Song <br> (Organizer) </td>
+                <td><span class="glyphicon glyphicon-ok-sign"></span> </td>
+                <td><span class="glyphicon glyphicon-ok-sign"></span> </td>
+                <td><span class="glyphicon glyphicon-ok-sign"></span> </td>
+                <td><span class="glyphicon glyphicon-ok-sign"></span> </td>
+                <td><span class="glyphicon glyphicon-ok-sign"></span> </td>
+            </tr>
+            <tr>
+                <td>Alice </td>
+                <td><span class="glyphicon glyphicon-ok-sign maybe"></span> </td>
+                <td><span class="glyphicon glyphicon-ok-sign"></span> </td>
+                <td><span class="glyphicon glyphicon-ok-sign"></span> </td>
+                <td><span class="glyphicon glyphicon-ok-sign"></span> </td>
+                <td><span class="glyphicon glyphicon-ok-sign maybe"></span> </td>
+            </tr>
+            <tr  class="active-row">
+                <td>You</td>
+                <td><input type="radio" name="choice1" value="yes" /> <span class="glyphicon glyphicon-ok-sign"></span> <br> <input type="radio" name="choice1" value="Maybe" /> <span class="glyphicon glyphicon-ok-sign maybe"></span> </td>
+                <td><input type="radio" name="choice2" value="yes" /> <span class="glyphicon glyphicon-ok-sign"></span> <br> <input type="radio" name="choice2" value="Maybe" /> <span class="glyphicon glyphicon-ok-sign maybe"></span> </td>
+                <td><input type="radio" name="choice3" value="yes" /> <span class="glyphicon glyphicon-ok-sign"></span> <br> <input type="radio" name="choice3" value="Maybe" /> <span class="glyphicon glyphicon-ok-sign maybe"></span> </td>
+                <td><input type="radio" name="choice4" value="yes" /> <span class="glyphicon glyphicon-ok-sign"></span> <br> <input type="radio" name="choice4" value="Maybe" /> <span class="glyphicon glyphicon-ok-sign maybe"></span> </td>
+                <td><input type="radio" name="choice5" value="yes" /> <span class="glyphicon glyphicon-ok-sign"></span> <br> <input type="radio" name="choice5" value="Maybe" /> <span class="glyphicon glyphicon-ok-sign maybe"></span> </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4 class="center">
+      <span class="glyphicon glyphicon-ok-sign"></span> Yes, I can make this time!
+      <span class="glyphicon glyphicon-ok-sign maybe"></span> If needed, I can make this time!
+    </h4>
   <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/python-getting-started">Heroku Button</a> on the repository.</li>
+      <div class="column center">
+            <a href="{% url 'submitted' %}">  <input type="submit" value="Submit"></a>
+      </div>
 
-        <li>When Heroku received the source code, it fetched all the dependencies in <a href="https://github.com/heroku/python-getting-started/blob/main/requirements.txt">requirements.txt</a>, creating a deployable slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-        <ul>
-          <li><code>git clone https://github.com/heroku/python-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd python-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-python#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started with Python on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/django-app-configuration">Configuring Django Apps for Heroku</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
   </div>
+    <div class="center">
+        Built using Python and Django. Deployed on Heroku.
+    </div>
+
+
 </div>
 {% endblock %}
